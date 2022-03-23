@@ -18,7 +18,7 @@ server.listen(PORT, () => {
     console.log(`Server is running on PORT: ${PORT}`)
 })
 
-app.use(cors({
+server.use(cors({
     origin: "*"
 }))
 
