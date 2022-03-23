@@ -4,9 +4,16 @@ const app = express();
 const http = require('http');
 const { env } = require('process');
 const server = http.createServer(app); 
+
 const {userJoin, getCurrentUser, userLeave, getRoomUsers} = require('./public/utils/users')
 const formatMessage = require('./public/utils/message')
 const botChat = 'Zalo bot'
+
+
+const PORT = process.env.PORT || 3000; 
+server.listen(PORT, () => {
+    console.log(`Server is running on PORT: ${PORT}`)
+})
 
 //access to socket.io
 const socketio = require('socket.io');
@@ -14,15 +21,9 @@ const io = socketio((server, {
     cors: {
       origin: '*',
     }
-}));
+}))
 
 
-
-//connection to server 3000 
-const PORT = process.env.PORT || 3000; 
-server.listen(PORT, () => {
-    console.log(`Server is running on PORT: ${PORT}`)
-})
 
 
 
