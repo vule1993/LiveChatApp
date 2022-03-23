@@ -1,5 +1,5 @@
 //access to socket.io on client side: 
-const socket = io('https://quiet-lake-24783.herokuapp.com/');
+const socket = io('');
 const chatForm = document.getElementById('chatMessage');
 
 //using queryString to get username and roomName from URL
