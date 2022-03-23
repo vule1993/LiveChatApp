@@ -12,15 +12,17 @@ const botChat = 'Zalo bot'
 const socketio = require('socket.io');
 const io = socketio(server);
 
+server.use(cors({
+    origin: "*"
+}))
+
 //connection to server 3000 
 const PORT = process.env.PORT || 3000; 
 server.listen(PORT, () => {
     console.log(`Server is running on PORT: ${PORT}`)
 })
 
-server.use(cors({
-    origin: "*"
-}))
+
 
 //emit the welcome message to client-side when there is a connection to server
 io.on('connection', socket => {
