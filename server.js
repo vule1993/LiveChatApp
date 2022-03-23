@@ -10,11 +10,13 @@ const botChat = 'Zalo bot'
 
 //access to socket.io
 const socketio = require('socket.io');
-const io = socketio(server);
+const io = socketio((server, {
+    cors: {
+      origin: '*',
+    }
+}));
 
-server.use(cors({
-    origin: "*"
-}))
+
 
 //connection to server 3000 
 const PORT = process.env.PORT || 3000; 
