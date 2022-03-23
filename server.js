@@ -18,6 +18,9 @@ server.listen(PORT, () => {
     console.log(`Server is running on PORT: ${PORT}`)
 })
 
+app.use(cors({
+    origin: "*"
+}))
 
 //emit the welcome message to client-side when there is a connection to server
 io.on('connection', socket => {
