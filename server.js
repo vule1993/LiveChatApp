@@ -1,9 +1,9 @@
 const path = require('path');
 const express = require('express');
 const app = express(); 
-const http = require('http');
+const https = require('https');
 const { env } = require('process');
-const server = http.createServer(app); 
+const server = https.createServer(app); 
 
 const {userJoin, getCurrentUser, userLeave, getRoomUsers} = require('./public/utils/users')
 const formatMessage = require('./public/utils/message')
