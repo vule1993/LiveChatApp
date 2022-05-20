@@ -1,5 +1,5 @@
 //access to socket.io on client side: 
-const socket = io('');
+const socket = io();
 const chatForm = document.getElementById('chatMessage');
 
 //using queryString to get username and roomName from URL

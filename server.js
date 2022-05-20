@@ -1,9 +1,9 @@
 const path = require('path');
 const express = require('express');
 const app = express(); 
-const https = require('https');
+const http = require('http');
 const { env } = require('process');
-const server = https.createServer(app); 
+const server = http.createServer(app); 
 
 const {userJoin, getCurrentUser, userLeave, getRoomUsers} = require('./public/utils/users')
 const formatMessage = require('./public/utils/message')
@@ -17,11 +17,7 @@ server.listen(PORT, () => {
 
 //access to socket.io
 const socketio = require('socket.io');
-const io = socketio((server, {
-    cors: {
-      origin: '*',
-    }
-}))
+const io = socketio(server);
 
 
 
